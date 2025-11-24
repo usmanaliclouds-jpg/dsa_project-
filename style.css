@@ -1,47 +1,55 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #e9e9e9;
+    color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #container {
     display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
+    max-width: 1300px;
+    margin: 25px auto;
 }
 
 #controls {
-    width: 300px;
+    width: 280px;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    height: fit-content;
 }
 
 #visualization {
     flex-grow: 1;
-    margin-left: 20px;
+    margin-left: 25px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 #visualizerCanvas {
-    width: 100%;
-    height: 100%;
-    /* You will set the exact dimensions using JavaScript */
+    /* Set dimensions via JavaScript, but use min-height for layout */
+    min-height: 500px; 
+    border-radius: 8px;
+    display: block;
 }
 
 #log-panel {
     border: 1px solid #ccc;
-    height: 150px;
+    height: 180px;
     overflow-y: scroll;
-    padding: 5px;
-    background-color: #eee;
+    padding: 10px;
+    background-color: #f9f9f9;
     font-size: 0.9em;
+    border-radius: 4px;
+    margin-top: 15px;
 }
