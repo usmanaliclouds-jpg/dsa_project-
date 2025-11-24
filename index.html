@@ -3,31 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DSA Visualizer - Linked List</title>
+    <title>Data Structure Visualizer - DSA Portfolio Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Linked List Visualizer</h1>
-        <p>This is a Web-Based Portfolio Project for Data Structures[cite: 3].</p>
-    </header>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>Data Structure Visualizer</h1>
+                <p class="subtitle">Interactive visualization of core DSA concepts</p>
+            </div>
+        </header>
 
-    <div id="container">
-        <div id="controls">
-            <h2>Operations</h2>
-            <input type="number" id="value-input" placeholder="Enter value" min="1" max="99">
-            <button onclick="insertAtHead()">Insert at Head</button>
-            <button onclick="clearList()">Clear List</button>
-            
-            <hr>
-            <h2>Log / Explanation Panel [cite: 50]</h2>
-            <div id="log-panel"></div>
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="heap">Binary Heap</button>
+            <button class="tab-btn" data-tab="avl">AVL Tree</button>
+            <button class="tab-btn" data-tab="graph">Graph</button>
+            <button class="tab-btn" data-tab="hash">Hash Table</button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- BINARY HEAP SECTION -->
+            <div id="heap" class="tab-content active">
+                <div class="section-header">
+                    <h2>Binary Heap</h2>
+                    <div class="control-type">
+                        <label>Type: </label>
+                        <select id="heapType">
+                            <option value="min">Min Heap</option>
+                            <option value="max">Max Heap</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="control-panel">
+                        <div class="input-group">
+                            <input type="number" id="heapInput" placeholder="Enter value" min="1" max="100">
+                            <button class="btn btn-primary" onclick="heapInsert()">Insert</button>
+                        </div>
+                        <button class="btn btn-danger" onclick="heapExtract()">Extract Root</button>
+                        <button class="btn btn-secondary" onclick="heapClear()">Clear All</button>
+
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="label">Size:</span>
+                                <span id="heapSize" class="value">0</span>
+                            </div>
+                        </div>
+
+                        <div class="info-panel">
+                            <h4>Heap Array:</h4>
+                            <div id="heapArray" class="array-display"></div>
+                        </div>
+
+                        <div class="log-panel">
+                            <h4>Log:</h4>
+                            <div id="heapLog" class="log-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="visualization-panel">
+                        <canvas id="heapCanvas" width="400" height="500"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AVL TREE SECTION -->
+            <div id="avl" class="tab-content">
+                <div class="section-header">
+                    <h2>AVL Tree</h2>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="label">Height:</span>
+                            <span id="avlHeight" class="value">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="control-panel">
+                        <div class="input-group">
+                            <input type="number" id="avlInput" placeholder="Enter value" min="1" max="100">
+                            <button class="btn btn-primary" onclick="avlInsert()">Insert</button>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" id="avlDeleteInput" placeholder="Value to delete" min="1" max="100">
+                            <button class="btn btn-warning" onclick="avlDelete()">Delete</button>
+                        </div>
+                        <button class="btn btn-secondary" onclick="avlClear()">Clear All</button>
+
+                        <div class="info-panel">
+                            <h4>Inorder Traversal:</h4>
+                            <div id="avlInorder" class="array-display"></div>
+                        </div>
+
+                        <div class="log-panel">
+                            <h4>Operations:</h4>
+                            <div id="avlLog" class="log-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="visualization-panel">
+                        <canvas id="avlCanvas" width="400" height="500"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAPH SECTION -->
+            <div id="graph" class="tab-content">
+                <div class="section-header">
+                    <h2>Graph & Algorithms</h2>
+                </div>
+
+                <div class="grid-2">
+                    <div class="control-panel">
+                        <div class="input-group">
+                            <label>Vertices:</label>
+                            <input type="number" id="graphVertices" value="6" min="2" max="20">
+                            <button class="btn btn-primary" onclick="initGraph()">Initialize</button>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Add Edge:</label>
+                            <input type="number" id="graphU" placeholder="From" min="0" max="20">
+                            <input type="number" id="graphV" placeholder="To" min="0" max="20">
+                            <button class="btn btn-primary" onclick="graphAddEdge()">Add Edge</button>
+                        </div>
+
+                        <div class="algorithm-buttons">
+                            <label>Traversal:</label>
+                            <button class="btn btn-info" onclick="graphBFS()">BFS</button>
+                            <button class="btn btn-info" onclick="graphDFS()">DFS</button>
+                        </div>
+
+                        <div class="info-panel">
+                            <h4>Result:</h4>
+                            <div id="graphResult" class="array-display"></div>
+                        </div>
+
+                        <div class="log-panel">
+                            <h4>Details:</h4>
+                            <div id="graphLog" class="log-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="visualization-panel">
+                        <canvas id="graphCanvas" width="400" height="500"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HASH TABLE SECTION -->
+            <div id="hash" class="tab-content">
+                <div class="section-header">
+                    <h2>Hash Table (Chaining)</h2>
+                </div>
+
+                <div class="grid-2">
+                    <div class="control-panel">
+                        <div class="input-group">
+                            <label>Key:</label>
+                            <input type="number" id="hashKey" placeholder="Key" min="1" max="100">
+                            <label>Value:</label>
+                            <input type="number" id="hashValue" placeholder="Value" min="1" max="1000">
+                            <button class="btn btn-primary" onclick="hashInsert()">Insert</button>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="number" id="hashSearchKey" placeholder="Search key">
+                            <button class="btn btn-info" onclick="hashSearch()">Search</button>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="number" id="hashDeleteKey" placeholder="Delete key">
+                            <button class="btn btn-warning" onclick="hashDelete()">Delete</button>
+                        </div>
+
+                        <div class="info-panel">
+                            <h4>Hash Table State:</h4>
+                            <div id="hashTable" class="array-display"></div>
+                        </div>
+
+                        <div class="log-panel">
+                            <h4>Log:</h4>
+                            <div id="hashLog" class="log-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="visualization-panel">
+                        <canvas id="hashCanvas" width="400" height="500"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div id="visualization">
-            <canvas id="visualizerCanvas"></canvas>
-        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <p>DSA Portfolio Project | Interactive Data Structure Visualizer</p>
+            <p class="small">Deploy to GitHub Pages for your LinkedIn portfolio</p>
+        </footer>
     </div>
+
+    <!-- Load WASM modules (compile from C++ using Emscripten) -->
+    <!-- For now, we'll use JavaScript implementations -->
+    <!-- <script async src="data_structures.js"></script> -->
     
     <script src="app.js"></script>
 </body>
