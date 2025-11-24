@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Data Structure Visualizer</h1>
+    </header>
+
+    <div id="container">
+        <div id="controls">
+            <h2>Controls</h2>
+            <select id="ds-selector">
+                <option value="heap">Binary Heap</option>
+                <option value="avl">AVL Tree</option>
+                <option value="graph">Graph</option>
+                <option value="hash">Hash Table</option>
+            </select>
+            <input type="number" id="value-input" placeholder="Enter value">
+            <button onclick="insertValue()">Insert</button>
+            <button onclick="deleteValue()">Delete</button>
+            <hr>
+            <h2>Log / Explanation</h2>
+            <div id="log-panel"></div>
+        </div>
+
+        <div id="visualization">
+            <canvas id="visualizerCanvas"></canvas>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
