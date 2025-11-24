@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+#controls {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#visualization {
+    flex-grow: 1;
+    margin-left: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#visualizerCanvas {
+    width: 100%;
+    height: 100%;
+    /* You will set the exact dimensions using JavaScript */
+}
+
+#log-panel {
+    border: 1px solid #ccc;
+    height: 150px;
+    overflow-y: scroll;
+    padding: 5px;
+    background-color: #eee;
+    font-size: 0.9em;
+}
